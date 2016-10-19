@@ -31,4 +31,15 @@ public class ActivityRepositoryStub implements ActivityRepository {
 		
 		return activities;
 	}
+	@Override
+	public Activity findActivity(String activityId) {
+        
+		Activity activivty1 = new Activity();
+		
+		activivty1.setId("1234");
+		activivty1.setDescription("Swimming");
+		activivty1.setDuration(55);
+		
+		return activivty1;
+	}
 }
