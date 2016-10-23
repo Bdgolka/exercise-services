@@ -10,6 +10,11 @@ public class ActivityRepositoryStub implements ActivityRepository {
 	/* (non-Javadoc)
 	 * @see com.pluralsight.repository.ActivityRepository#findAllActivities()
 	 */
+	
+	public void create(Activity activity) {
+	 // should issue an insert statement to the db	
+	}
+	
 	@Override
 	public List<Activity> findAllActivities(){
 		

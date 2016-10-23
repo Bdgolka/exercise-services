@@ -30,6 +30,7 @@ public class Activity {
 	}
 	public void setDuration(int duration) {
 		this.duration = duration;
+		
 	}
 	
 }

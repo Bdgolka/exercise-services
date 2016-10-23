@@ -15,7 +15,7 @@ import com.pluralsight.model.Activity;
 import com.pluralsight.repository.ActivityRepository;
 import com.pluralsight.repository.ActivityRepositoryStub;
 
-@Path("activities")//http:localhost:8080/ecrcise-rervices/webapi/activities
+@Path("activities")//http:localhost:8080/exercise-rervices/webapi/activities
 public class ActivityResource {
 
 	private ActivityRepository activityRepository = new ActivityRepositoryStub();
@@ -29,7 +29,13 @@ public class ActivityResource {
 		System.out.println(formParams.getFirst("description"));
 		System.out.println(formParams.getFirst("duration"));
 		
-		return null;		
+		Activity activity = new Activity();
+		activity.setDescription(formParams.getFirst("description"));
+		activity.setDuration(Integer.parseInt(formParams.getFirst("duration")));
+		
+		activityRepository.create(activity);
+		
+		return activity;		
 	}
 	
 	
