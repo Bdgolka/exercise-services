@@ -9,6 +9,21 @@ import org.junit.Test;
 import com.pluralsight.model.Activity;
 
 public class ActivityClientTest {
+	
+	@Test 
+	public void testCreate() {
+		
+		ActivityClient client = new ActivityClient();
+		
+		Activity activity = new Activity();
+		activity.setDescription("Swimming");
+		activity.setDuration(80);
+		
+		activity = client.create(activity);
+		
+		assertNotNull(activity);
+	
+	}
 
 	@Test
 	public void testGet() {
