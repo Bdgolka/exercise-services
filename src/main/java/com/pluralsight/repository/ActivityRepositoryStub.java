@@ -38,6 +38,10 @@ public class ActivityRepositoryStub implements ActivityRepository {
 	}
 	@Override
 	public Activity findActivity(String activityId) {
+		
+		if(activityId.equals("7777")){
+			return null;
+		}
         
 		Activity activivty1 = new Activity();
 		
