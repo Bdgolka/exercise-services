@@ -15,7 +15,7 @@ import com.pluralsight.model.Activity;
 import com.pluralsight.repository.ActivityRepository;
 import com.pluralsight.repository.ActivityRepositoryStub;
 
-@Path("activities")//http:localhost:8080/exercise-rervices/webapi/activities
+@Path("activities")//http:localhost:8080/exercise-services/webapi/activities
 public class ActivityResource {
 
 	private ActivityRepository activityRepository = new ActivityRepositoryStub();
@@ -66,6 +66,7 @@ public class ActivityResource {
 	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	@Path("{activityId}")//http:localhost:8080/ecrcise-rervices/webapi/activities/1234
 	public Activity getActivity(@PathParam ("activityId") String activityId){
+		System.out.println("Getting activity ID : " + activityId);
 		
 		return activityRepository.findActivity(activityId);	
 		
