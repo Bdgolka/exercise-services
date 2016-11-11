@@ -7,9 +7,20 @@ import com.pluralsight.model.Activity;
 
 public class ActivityRepositoryStub implements ActivityRepository {
 
-	/* (non-Javadoc)
-	 * @see com.pluralsight.repository.ActivityRepository#findAllActivities()
-	 */
+	@Override
+	public List<Activity> findbyDescription(List<String> descriptions) {
+		//Select * from activities where description in (?,?,?) 
+		
+		List<Activity> activities = new ArrayList<Activity>();
+		Activity activity = new Activity();
+		activity.setId("2345");
+		activity.setDescription("swimming");
+		activity.setDuration(55);
+		
+		activities.add(activity);
+		
+		return activities;
+	}
 	
 	public void create(Activity activity) {
 	 // should issue an insert statement to the db	
