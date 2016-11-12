@@ -4,9 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.pluralsight.model.Activity;
+import com.pluralsight.model.ActivitySearch;
 
 public class ActivityRepositoryStub implements ActivityRepository {
 
+	@Override
+	public List<Activity> findByConstraints(ActivitySearch search) {
+		
+		System.out.println(search.getDurationTo());
+		
+		List<Activity> activities = new ArrayList<Activity>();
+		Activity activity = new Activity();
+		activity.setId("2345");
+		activity.setDescription("swimming");
+		activity.setDuration(55);
+		
+		activities.add(activity);
+		
+		return activities;
+	}
+	
 	@Override
 	public List<Activity> findbyDescription(List<String> descriptions, int durationFrom, int durationTo) {
 		//Select * from activities where description in (?,?,?) and duration > ? and duration < ?

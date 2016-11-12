@@ -5,16 +5,39 @@ import java.util.List;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
+import org.omg.PortableServer.REQUEST_PROCESSING_POLICY_ID;
+
 import com.pluralsight.model.Activity;
+import com.pluralsight.model.ActivitySearch;
 
 public class ActivitySearchClient {
 	
 	private Client client;
+
+
+	public List<Activity> search(ActivitySearch search) {
+ 
+		URI uri = UriBuilder.fromUri("http://localhost:8080/exercise-services/webapi/")
+				.path("search/activities")
+				.build();
+
+		WebTarget target = client.target(uri);
+		
+		Response responce = target.request(MediaType.APPLICATION_JSON).post(Entity.entity(search,  MediaType.APPLICATION_JSON));
+		
+		if (responce.getStatus() !=200){
+			throw new RuntimeException(responce.getStatus() + "there was an error on the server.");
+		}
+		
+		return responce.readEntity(new GenericType<List<Activity>>(){});
+	}
 	
 	public ActivitySearchClient(){
 		client = ClientBuilder.newClient(); 
@@ -38,4 +61,5 @@ public class ActivitySearchClient {
 	return responce;
 		
 	}
+
 }

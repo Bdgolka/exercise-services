@@ -8,8 +8,30 @@ import java.util.List;
 import org.junit.Test;
 
 import com.pluralsight.model.Activity;
+import com.pluralsight.model.ActivitySearch;
 
 public class ActivityClientTest {
+	
+	@Test
+	public void testSearchObject(){
+		
+		ActivitySearchClient client = new ActivitySearchClient();
+		
+		List<String> searchValues = new ArrayList<String>();
+		searchValues.add("biking");
+		searchValues.add("running");
+		
+		ActivitySearch search  = new ActivitySearch();
+		search.setDescription(searchValues);
+		search.setDurationFrom(30);
+		search.setDurationTo(55);
+		
+		List<Activity> activities = client.search(search);
+		
+		System.out.println(activities);
+		
+		assertNotNull(activities);
+	}
 	
 	@Test 
 	public void testSearch() {
