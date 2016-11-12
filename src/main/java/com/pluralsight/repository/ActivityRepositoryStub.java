@@ -8,8 +8,8 @@ import com.pluralsight.model.Activity;
 public class ActivityRepositoryStub implements ActivityRepository {
 
 	@Override
-	public List<Activity> findbyDescription(List<String> descriptions) {
-		//Select * from activities where description in (?,?,?) 
+	public List<Activity> findbyDescription(List<String> descriptions, int durationFrom, int durationTo) {
+		//Select * from activities where description in (?,?,?) and duration > ? and duration < ?
 		
 		List<Activity> activities = new ArrayList<Activity>();
 		Activity activity = new Activity();
