@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import com.pluralsight.model.Activity;
 import com.pluralsight.model.ActivitySearch;
+import com.pluralsight.model.ActivitySearchType;
 
 public class ActivityClientTest {
 	
@@ -25,6 +26,7 @@ public class ActivityClientTest {
 		search.setDescription(searchValues);
 		search.setDurationFrom(30);
 		search.setDurationTo(55);
+		search.setSearchType(ActivitySearchType.SEARCH_BY_DESCRIPTION);
 		
 		List<Activity> activities = client.search(search);
 		
